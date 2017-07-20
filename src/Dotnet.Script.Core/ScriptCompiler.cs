@@ -65,15 +65,16 @@ namespace Dotnet.Script.Core
         {
             if (context == null) throw new ArgumentNullException(nameof(context));
 
-            var runtimeContext = ProjectContext.CreateContextForEachTarget(context.WorkingDirectory).First();
+            //var runtimeContext = ProjectContext.CreateContextForEachTarget(context.WorkingDirectory).First();
             var runtimeIdentitfer = GetRuntimeIdentitifer();
 
             _logger.Verbose($"Current runtime is '{runtimeIdentitfer}'.");
-            _logger.Verbose($"Found runtime context for '{runtimeContext.ProjectFile.ProjectFilePath}'.");
+            //_logger.Verbose($"Found runtime context for '{runtimeContext.ProjectFile.ProjectFilePath}'.");
 
-            var projectExporter = runtimeContext.CreateExporter(context.Configuration);
+            //var projectExporter = runtimeContext.CreateExporter(context.Configuration);
 
             var runtimeDependencies = new HashSet<string>();
+            /*
             var projectDependencies = projectExporter.GetDependencies();
 
             foreach (var projectDependency in projectDependencies)
@@ -100,6 +101,7 @@ namespace Dotnet.Script.Core
                     }
                 }
             }
+            */
 
             var opts = CreateScriptOptions(context);
 
